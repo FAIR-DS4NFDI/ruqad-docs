@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+PORT="${PORT:-"8080"}"
+docker run -it --rm -p "${PORT}:8080" -v "$PWD/src:/usr/local/structurizr" structurizr/lite

@@ -1,0 +1,30 @@
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "merge_request_event" && $CI_COMMIT_REF_NAME != $CI_COMMIT_TA
+
+validate:
+  tags: ["docker"]
+  image:
+    name: structurizr/cli
+    entrypoint: [""]
+  script:
+    - cd src/
+    - /usr/local/structurizr-cli/structurizr.sh validate -w workspace.dsl
+
+
+pages:
+  tags: ["docker"]
+  image:
+    name: ghcr.io/avisi-cloud/structurizr-site-generatr:latest
+    entrypoint: [""]
+  needs: ["validate"]
+  script:
+    - cd src/
+    - /opt/structurizr-site-generatr/bin/structurizr-site-generatr generate-site -w workspace.dsl -o ../public
+  pages: true
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
