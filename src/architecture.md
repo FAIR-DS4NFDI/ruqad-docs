@@ -10,10 +10,15 @@
 
 ### Stakeholders
 
+test
+
 | Role/Name   | Contact        | Expectations       |
 |-------------|----------------|--------------------|
 | *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
 | *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
+| IndiScale   |                |                    |
+| PoLis       |                |                    |
+
 
 ## Architecture Constraints
 
@@ -55,15 +60,32 @@ Contained Building Blocks
 Important Interfaces  
 *\<Description of important interfaces>*
 
-#### \<Name black box 1>
+#### LinkAhead Crawler
 
 *\<Purpose/Responsibility>*
+Scans files in specific directories of the file system and synchronizes them with the LinkAhead instance. Before insertion and updates of
+`Records` in LinkAhead, a meta data check is carried out to verify whether the meta data that was exported from kadi4mat is compatible with
+the target data model (in LinkAhead and the EDC). Validation failure leads to specific validation error messages and prevents insertions or updates
+of the scan result.
 
 *\<Interface(s)>*
+The crawler component consists of:
+- A cfood (file in YAML format) which specifies the mapping from data found on the file system to `Records` in LinkAhead.
+- A definition of the identifiables (file in YAML format) which defines the properties that are needed to uniquely identify `Records` of the data model in LinkAhead.
+- The data model definition (file in YAML format). This is needed by the crawler to do the meta data check.
+- Crawler extensions specific to the project (cusotm converters and custom transformers). These are python modules 
+  containing functions and classes that can be referenced within the cfood.
+
+The interface is a Python-function that is implemented as a module into the RuQaD demonstrator. The function calls the scanner and main crawler functions of the
+LinkAhead crawler software.
 
 *\<(Optional) Quality/Performance Characteristics>*
 
 *\<(Optional) Directory/File Location>*
+- Main interface: `ruqad/src/ruqad/crawler.py`
+- Crawler extensions:
+  - Custom converters (currently not used): `ruqad/src/ruqad/crawler-extensions/converters.py`
+  - Custom transformers: `ruqad/src/ruqad/crawler-extensions/transformers.py`
 
 *\<(Optional) Fulfilled Requirements>*
 
