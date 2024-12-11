@@ -31,15 +31,15 @@ Our main qulity goals are, using the terms from ISO 25010 (see glossary for defi
 - Maintainability
 
 
-
 ### Stakeholders
 
-| Role/Name   | Contact        | Expectations       |
-|-------------|----------------|--------------------|
-| *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
-| *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
-| IndiScale   |                |                    |
-| PoLis       |                |                    |
+| Role/Name        | Contact           | Expectations                                                 |
+|------------------|-------------------|--------------------------------------------------------------|
+| *\<Role-1>*      | *\<Contact-1>*    | *\<Expectation-1>*                                           |
+| *\<Role-2>*      | *\<Contact-2>*    | *\<Expectation-2>*                                           |
+|                  |                   |                                                              |
+| IndiScale        | Henrik tom Wörden | Quality and FAIRness of entities are successfully annotated. |
+| PoLis / Kadi4Mat |                   | Entities can be exported to other dataspaces.                |
 
 
 ## Architecture Constraints
@@ -84,6 +84,8 @@ Contained Building Blocks
 
 Important Interfaces  
 *\<Description of important interfaces>*
+
+#### Quality Checker ####
 
 #### LinkAhead Crawler
 
