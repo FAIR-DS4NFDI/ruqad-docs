@@ -6,7 +6,31 @@
 
 ### Requirements Overview
 
+
+The aim of the project is to build a demonstrator that connects the data management system kadi4mat and EDC allowing for quality checked data exchange from kadi4mat to EDC.
+This needs to be achieved by a tool that exports data from the source system, carries out quality and meta data checks (involving an existing pipeline) and importing the
+data into the target system. 
+
+TODO: Link to requirements document
+
+The motivation is to allow a seamless exchange of data between research and industry.
+It is important to ensure that the FAIR criteria are met, therefore a dedicated check for meta data and the FAIR criteria is implemented.
+The FAIR criteria can be summarized to the following practical checks:
+- Is a PID present?
+- Is the domain-specific meta data complete?
+- Is there provenance information?
+- Does the data include license information?
+
 ### Quality Goals
+
+Our main qulity goals are, using the terms from ISO 25010 (see glossary for definitions):
+
+- Operability
+- Compatibility
+- Transferability
+- Maintainability
+
+
 
 ### Stakeholders
 
@@ -66,7 +90,7 @@ Important Interfaces
 Scans files in specific directories of the file system and synchronizes them with the LinkAhead instance. Before insertion and updates of
 `Records` in LinkAhead, a meta data check is carried out to verify whether the meta data that was exported from kadi4mat is compatible with
 the target data model (in LinkAhead and the EDC). Validation failure leads to specific validation error messages and prevents insertions or updates
-of the scan result.
+of the scan result. The software component also carries out a check of data FAIRness of the data exported from kadi4mat (in ELN format).
 
 *\<Interface(s)>*
 The crawler component consists of:
@@ -88,6 +112,10 @@ LinkAhead crawler software.
   - Custom transformers: `ruqad/src/ruqad/crawler-extensions/transformers.py`
 
 *\<(Optional) Fulfilled Requirements>*
+- Data ingest from exported ELN file into LinkAhead.
+- Data ingest from quality check into LinkAhead.
+- Check of FAIRness of data from ELN file.
+- Meta data check
 
 *\<(optional) Open Issues/Problems/Risks>*
 
@@ -209,7 +237,11 @@ Mapping of Building Blocks to Infrastructure
 
 ## Glossary
 
+[//]: # (These are probably defined in: https://www.iso.org/standard/78176.html)
+
 | Term        | Definition        |
 |-------------|-------------------|
-| *\<Term-1>* | *\<definition-1>* |
-| *\<Term-2>* | *\<definition-2>* |
+| Operability (ISO 25010) | "System can be understood, learned, used and is attractive to users." |
+| Transferability (ISO 25010) | "System can be transferred from one environment to another." |
+| Maintainability (ISO 25010) | "System can be modified, corrected, adapted or improved due to changes in environment or requirements." |
+| Compatibility (ISO 25010) | "Two or more systems can exchange information while sharing the same environment." |
