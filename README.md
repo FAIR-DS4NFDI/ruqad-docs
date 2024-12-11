@@ -21,8 +21,10 @@ The src directory contains the doc-as-code sources.
 
 The tools directory contains the following tools:
 
-* [tools/serve](./tools/serve) - serve a static site on localhost.
+* [tools/serve](./tools/serve) - serve a static site on http://localhost:8080 which renders the documentation,
+  including diagrams.
 * [tools/validate](./tools/validate) - validate your structurizr workspace.
-* [tools/structurizer-lite](./tools/structurizer-lite) - the original structurizer-lite tool. Use this to interactively layout single diagrams.
+* [tools/structurizer-lite](./tools/structurizer-lite) - the original structurizer-lite tool. Use this to interactively
+  layout single diagrams.
 
-All tools require docker.
+All tools require docker, more information in the [readme](tools/README.md) in the tools directory.
