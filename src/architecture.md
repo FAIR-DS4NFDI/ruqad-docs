@@ -87,6 +87,36 @@ Important Interfaces
 
 #### Quality Checker ####
 
+*\<Purpose/Responsibility>*
+
+The quality checker executes data quality checks on the data which was retrieved from the input
+dataspace (a Kadi4Mat instance in this case).  It provides a structured summary for other components
+and also a detailed report for human consumption.
+
+*\<Interface(s)>*
+
+The quality checker is implemented as a Python class `QualityChecker` which provides mainly a
+`check(filename, target_dir)` method to check individual files.  This class is available in the
+module `ruqad.qualitycheck`.
+
+*\<(Optional) Quality/Performance Characteristics>*
+
+The quality checker relies on the [demonstrator 4.2](https://git.rwth-aachen.de/fair-ds/ap-4-2-demonstrator/ap-4.2-data-validation-and-quality-assurance-demonstrator) to perform the checks.  The quality of this
+component so far seems excellent, but is beyond RuQaD's responsibility.
+
+*\<(Optional) Directory/File Location>*
+
+*\<(Optional) Fulfilled Requirements>*
+
+*\<(optional) Open Issues/Problems/Risks>*
+
+##### Open issues #####
+
+- The demonstrator 4.2 service currently relies on running as Gitlab pipeline jobs, which introduces
+  a certain administrative overhead for production deployment.
+- It is possible and may be desirable to parallelize the quality check for multiple files by
+  distributing the load on a number of service workers, instead of checking files sequentially.
+
 #### LinkAhead Crawler
 
 *\<Purpose/Responsibility>*
@@ -126,9 +156,24 @@ LinkAhead crawler software.
 
 *\<black box template>*
 
+*\<Purpose/Responsibility>*
+*\<Interface(s)>*
+*\<(Optional) Quality/Performance Characteristics>*
+*\<(Optional) Directory/File Location>*
+*\<(Optional) Fulfilled Requirements>*
+*\<(optional) Open Issues/Problems/Risks>*
+
+
 #### \<Name black box n>
 
 *\<black box template>*
+
+*\<Purpose/Responsibility>*
+*\<Interface(s)>*
+*\<(Optional) Quality/Performance Characteristics>*
+*\<(Optional) Directory/File Location>*
+*\<(Optional) Fulfilled Requirements>*
+*\<(optional) Open Issues/Problems/Risks>*
 
 #### \<Name interface 1>
 
