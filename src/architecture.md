@@ -4,6 +4,8 @@
 
 ## Introduction and Goals
 
+<https://docs.arc42.org/section-1/>
+
 ### Requirements Overview
 
 
@@ -23,7 +25,15 @@ The FAIR criteria can be summarized to the following practical checks:
 
 ### Quality Goals
 
-Our main qulity goals are, using the terms from ISO 25010 (see glossary for definitions):
+> The top three (max five) quality goals for the architecture whose fulfillment is of highest
+> importance to the major stakeholders. We really mean quality goals for the architecture. Don’t
+> confuse them with project goals. They are not necessarily identical.
+>
+> The ISO 25010 standard provides a nice overview of potential topics of interest:
+>
+> ...
+
+RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for definitions):
 
 - Operability
 - Compatibility
@@ -32,6 +42,15 @@ Our main qulity goals are, using the terms from ISO 25010 (see glossary for defi
 
 
 ### Stakeholders
+
+> Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
+>
+> - should know the architecture
+> - have to be convinced of the architecture
+> - have to work with the architecture or with code
+> - need the documentation of the architecture for their work
+> - have to come up with decisions about the system or its development
+
 
 | Role/Name        | Contact           | Expectations                                                 |
 |------------------|-------------------|--------------------------------------------------------------|
@@ -44,15 +63,40 @@ Our main qulity goals are, using the terms from ISO 25010 (see glossary for defi
 
 ## Architecture Constraints
 
+<https://docs.arc42.org/section-2/>
+
+> Any requirement that constrains software architects in their freedom of design and implementation
+> decisions or decision about the development process. These constraints sometimes go beyond
+> individual systems and are valid for whole organizations and companies.
+
 ## Context and Scope
 
+<https://docs.arc42.org/section-3/>
+
+> System scope and context - as the name suggests - delimits your system (i.e. your scope) from all
+> its communication partners (neighboring systems and users, i.e. the context of your system). It
+> thereby specifies the external interfaces.
+>
+> If necessary, differentiate the business context (domain specific inputs and outputs) from the
+> technical context (channels, protocols, hardware).
+
+
+
 ### Business Context
+
+> Specification of all communication partners (users, IT-systems, …) with explanations of domain
+> specific inputs and outputs or interfaces. Optionally you can add domain specific formats or
+> communication protocols.
 
 **\<Diagram or Table>**
 
 **\<optionally: Explanation of external domain interfaces>**
 
 ### Technical Context
+
+> Technical interfaces (channels and transmission media) linking your system to its environment. In
+> addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O
+> uses which channel.
 
 #### System Landscape
 
@@ -67,12 +111,52 @@ Our main qulity goals are, using the terms from ISO 25010 (see glossary for defi
 
 ## Solution Strategy
 
+<https://docs.arc42.org/section-4/>
+
+> A short summary and explanation of the fundamental decisions and solution strategies, that shape the
+> system’s architecture. These include
+>
+> - technology decisions
+> - decisions about the top-level decomposition of the system, e.g. usage of an architectural pattern
+>   or design pattern
+> - decisions on how to achieve key quality goals
+> - relevant organizational decisions, e.g. selecting a development process or delegating certain
+>   tasks to third parties.
+
+
 
 ## Building Block View
+
+<https://docs.arc42.org/section-5/>
+
+> The building block view shows the static decomposition of the system into building blocks (modules,
+> components, subsystems, classes, interfaces, packages, libraries, frameworks, layers, partitions,
+> tiers, functions, macros, operations, data structures, …) as well as their dependencies
+> (relationships, associations, …)
+>
+> This view is mandatory for every architecture documentation. In analogy to a house this is the floor
+> plan.
+
 
 ![System Landscape Diagram](embed:buildingBlocks)
 
 ### Whitebox Overall System
+
+
+
+> Here you describe the decomposition of the overall system using the following white box template. It contains
+>
+> - an overview diagram
+> - a motivation for the decomposition
+> - black box descriptions of the contained building blocks. For these we offer you alternatives:
+>   - use one table for a short and pragmatic overview of all contained building blocks and their interfaces
+>   - use a list of black box descriptions of the building blocks according to the black box template (see below). Depending on your choice of tool this list could be sub-chapters (in text files), sub-pages (in a Wiki) or nested elements (in a modelling tool).
+> - (optional:) important interfaces, that are not explained in the black box templates of a building block, but are very important for understanding the white box.
+>
+> Since there are so many ways to specify interfaces why do not provide a specific template for them.
+>
+> In the best case you will get away with examples or simple signatures.
+
 
 ***\<Overview Diagram>***
 
@@ -213,7 +297,19 @@ LinkAhead crawler software.
 
 ## Runtime View
 
+[https://docs.arc42.org/section-6/](https://docs.arc42.org/section-6/)
+
+> The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
+>
+> 1. important use cases or features: how do building blocks execute them?
+> 2. interactions at critical external interfaces: how do building blocks cooperate with users and neighbouring systems?
+> 3. operation and administration: launch, start-up, stop
+> 4. error and exception scenarios
+>
+> Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their architectural relevancy. It is not important to describe a large number of scenarios. You should rather document a representative selection.
+
 ### \<Runtime Scenario 1>
+
 
 -   *\<insert runtime diagram or textual description of the scenario>*
 
@@ -228,7 +324,28 @@ LinkAhead crawler software.
 
 ## Deployment View
 
+[https://docs.arc42.org/section-7/](https://docs.arc42.org/section-7/)
+
+> The deployment view describes:
+>
+> 1. the technical infrastructure used to execute your system, with infrastructure elements like geographical locations, environments, computers, processors, channels and net topologies as well as other infrastructure elements and
+> 2. the mapping of (software) building blocks to that infrastructure elements.
+>
+> Often systems are executed in different environments, e.g. development environment, test environment, production environment. In such cases you should document all relevant environments.
+>
+> Especially document the deployment view when your software is executed as distributed system with more then one computer, processor, server or container or when you design and construct your own hardware processors and chips.
+>
+> From a software perspective it is sufficient to capture those elements of the infrastructure that are needed to show the deployment of your building blocks. Hardware architects can go beyond that and describe the infrastructure to any level of detail they need to capture.
+
 ### Infrastructure Level 1
+
+> Describe (usually in a combination of diagrams, tables, and text):
+>
+> 1. the distribution of your system to multiple locations, environments, computers, processors, .. as well as the physical connections between them
+> 2. important justification or motivation for this deployment structure
+> 3. Quality and/or performance features of the infrastructure
+> 4. the mapping of software artifacts (building blocks) to elements of the infrastructure
+ 
 
 ***\<Overview Diagram>***
 
@@ -259,6 +376,17 @@ Mapping of Building Blocks to Infrastructure
 
 ## Cross-cutting Concepts
 
+[https://docs.arc42.org/section-8/](https://docs.arc42.org/section-8/)
+
+> This section describes overall, principal regulations and solution ideas that are relevant in multiple parts (→ cross-cutting) of your system. Such concepts are often related to multiple building blocks. They include many different topics, such as
+>
+> - domain models
+> - architectural patterns or design patterns
+> - rules for using specific technology
+> - principale, often technical decisions of overall decisions
+> - implementation rules
+
+
 ### Using YAML for storing machine readable information
 
 The YAML format is used in several components of the software for storing and exchanging information in a
@@ -278,13 +406,50 @@ Multiple components of the software use REST interfaces for data exchange.
 
 ## Architecture Decisions
 
+<https://docs.arc42.org/section-9/>
+
+> Important, expensive, large scale or risky architecture decisions including rationales. With
+> “decisions” we mean selecting one alternative based on given criteria.
+>
+> Please use your judgement to decide whether an architectural decision should be documented here in
+> this central section or whether you better document it locally (e.g. within the white box template
+> of one building block). Avoid redundant texts. Refer to section 4, where you captured the most
+> important decisions of your architecture already.
+
 ## Quality Requirements
+
+<https://docs.arc42.org/section-10/>
+
+> This section contains all quality requirements as quality tree with scenarios. The most important
+> ones have already been described in section 1.2. (quality goals)
+>
+> Here you can also capture quality requirements with lesser priority, which will not create high
+> risks when they are not fully achieved.
 
 ### Quality Tree
 
+> The table or tree (as defined in ATAM – Architecture Tradeoff Analysis Method) of quality
+> requirements, with quality/evaluation scenarios as leaves.
+
 ### Quality Scenarios
 
+> Concretization of (sometimes vague or implicit) quality requirements using (quality) scenarios.
+>
+> These scenarios describe what should happen when a stimulus arrives at the system.
+>
+> For architects, two kinds of scenarios are important:
+>
+> - Usage scenarios (also called application scenarios or use case scenarios) describe the system’s
+>   runtime reaction to a certain stimulus. This also includes scenarios that describe the system’s
+>   efficiency or performance. Example: The system reacts to a user’s request within one second.
+> - Change scenarios describe a modification of the system or of its immediate environment. Example:
+>   Additional functionality is implemented or requirements for a quality attribute change.
+
 ## Risks and Technical Debts
+
+<https://docs.arc42.org/section-11/>
+
+> A list of identified technical risks or technical debts, ordered by priority
 
 ## Glossary
 
