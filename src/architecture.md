@@ -34,8 +34,6 @@ Our main qulity goals are, using the terms from ISO 25010 (see glossary for defi
 
 ### Stakeholders
 
-test
-
 | Role/Name   | Contact        | Expectations       |
 |-------------|----------------|--------------------|
 | *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
@@ -69,7 +67,10 @@ test
 
 ## Solution Strategy
 
+
 ## Building Block View
+
+![System Landscape Diagram](embed:buildingBlocks)
 
 ### Whitebox Overall System
 
@@ -211,15 +212,18 @@ Mapping of Building Blocks to Infrastructure
 
 ## Cross-cutting Concepts
 
-### *\<Concept 1>*
+### Using YAML for storing machine readable information
 
-*\<explanation>*
+The YAML format is used in several components of the software for storing and exchanging information in a
+format that is machine-readable and also human-readable at the same time.
 
-### *\<Concept 2>*
+### REST interfaces
 
-*\<explanation>*
+Multiple components of the software use REST interfaces for data exchange.
 
-…
+- Gitlab-API
+- kadi4mat-export (?)
+- LinkAhead
 
 ### *\<Concept n>*
 

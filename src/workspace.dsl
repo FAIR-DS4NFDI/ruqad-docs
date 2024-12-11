@@ -16,6 +16,11 @@ workspace "RuQaD" "Architecture Overview on the RuQaD Demonstrator" {
             include *
            # autolayout lr
         }
+
+        systemLandscape buildingBlocks "Building Blocks" {
+            # include *
+        }
+
         styles {
             element "Element" {
                 color white
