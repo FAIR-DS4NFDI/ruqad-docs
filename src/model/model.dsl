@@ -6,6 +6,7 @@ model {
         kadi_polis = softwaresystem "Polis Kadi4Mat" "The Kadi4Mat electronic lab notebook instance of the PoLiS Cluster of Excellence."
     }
     group "BatCAT Data Space" {
+        # Shouldn't this be split up in LinkAhead and EDC?
         dataspace_node = softwaresystem "BatCAT Data Space Node" "LinkAhead and EDC-based components of the BatCAT Data Space."
         data_consumer = person "Data Consumer" "R&D departments from the consortial partners of the BatCAT Data Space."
 
@@ -19,7 +20,7 @@ model {
     }
 
 
-    #linkahead = softwaresystem "LinkAhead" "LinkAhead research datamanagement system."
+    # linkahead = softwaresystem "LinkAhead" "LinkAhead research datamanagement system."
     #edc_framework = softwaresystem "ECD Framework" "Catalog, Provider Connector, Identity Hub and other components of the BatCAT dataspace."
 
 
@@ -27,6 +28,7 @@ model {
     ruqad -> kadi_polis "Pull battery-related datasets."
     ruqad -> quality_checker "Invoke quality assurace pipeline on raw data from PoLiS."
     ruqad -> dataspace_node "Ingest data to LinkAhead."
+    # ruqad -> linkahead_crawler "Ingest data to LinkAhead with the LinkAhead-Crawler."
 
     data_consumer -> dataspace_node "Browse datasets and request access for reuse."
     data_curator -> dataspace_node "Review and control the offering of datasets to the BatCAT Data Space."
