@@ -14,11 +14,15 @@ workspace "RuQaD" "Architecture Overview on the RuQaD Demonstrator" {
     views {
         systemLandscape sl "RuQaD Landscape" {
             include *
-           # autolayout lr
+            # autolayout lr
         }
 
-        systemLandscape buildingBlocks "Building Blocks" {
-            # include *
+        container ruqad buildingBlocks "Building Blocks" {
+            include *
+        }
+
+        component ruqad.crawler rq_crawler "Building Blocks" {
+            include *
         }
 
         styles {

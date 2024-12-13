@@ -160,8 +160,6 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 <b style="color: red; font-size: 32pt">TODO</b>
 
-![System Landscape Diagram](embed:buildingBlocks)
-
 ### Whitebox Overall System
 
 <!--
@@ -181,7 +179,7 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 <b style="color: red; font-size: 32pt">TODO</b>
 
-***\<Overview Diagram>***
+![Building Blocks](embed:buildingBlocks)
 
 Motivation  
 *\<text explanation>*
