@@ -17,12 +17,14 @@ model {
                 crawler = container "RuQaD Crawler" {
                     crawler_wrapper = component "Crawler wrapper"
                     converter = component "Converter"
+                    transformer = component "Transformer"
                     cfood = component "CFood declaration"
                     identifiables = component "Identifiables declaration"
 
                     crawler_wrapper -> cfood
                     crawler_wrapper -> identifiables
                     cfood -> converter "Uses"
+                    cfood -> transformer "Uses"
                 }
             }
             demo_42 = softwaresystem "Quality assurance 4.2 " "Gitlab pipeline for quality assurance based on the demonstrator 4.2." {
