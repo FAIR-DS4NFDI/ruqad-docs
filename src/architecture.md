@@ -4,7 +4,9 @@
 
 ## Introduction and Goals
 
+<!--
 <https://docs.arc42.org/section-1/>
+-->
 
 ### Requirements Overview
 
@@ -12,8 +14,6 @@
 The aim of the project is to build a demonstrator that connects the data management system kadi4mat and EDC allowing for quality checked data exchange from kadi4mat to EDC.
 This needs to be achieved by a tool that exports data from the source system, carries out quality and meta data checks (involving an existing pipeline) and importing the
 data into the target system. 
-
-TODO: Link to requirements document
 
 The motivation is to allow a seamless exchange of data between research and industry.
 It is important to ensure that the FAIR criteria are met, therefore a dedicated check for meta data and the FAIR criteria is implemented.
@@ -23,8 +23,11 @@ The FAIR criteria can be summarized to the following practical checks:
 - Is there provenance information?
 - Does the data include license information?
 
+The normative description of all requirements is contained in the non-public project proposal.
+
 ### Quality Goals
 
+<!--
 > The top three (max five) quality goals for the architecture whose fulfillment is of highest
 > importance to the major stakeholders. We really mean quality goals for the architecture. Don’t
 > confuse them with project goals. They are not necessarily identical.
@@ -32,6 +35,7 @@ The FAIR criteria can be summarized to the following practical checks:
 > The ISO 25010 standard provides a nice overview of potential topics of interest:
 >
 > ...
+-->
 
 RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for definitions):
 
@@ -43,6 +47,7 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ### Stakeholders
 
+<!--
 > Explicit overview of stakeholders of the system, i.e. all person, roles or organizations that
 >
 > - should know the architecture
@@ -50,17 +55,20 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > - have to work with the architecture or with code
 > - need the documentation of the architecture for their work
 > - have to come up with decisions about the system or its development
+-->
 
 
-| Role/Name        | Contact           | Expectations                                                 |
-|------------------|-------------------|--------------------------------------------------------------|
-| *\<Role-1>*      | *\<Contact-1>*    | *\<Expectation-1>*                                           |
-| *\<Role-2>*      | *\<Contact-2>*    | *\<Expectation-2>*                                           |
-|                  |                   |                                                              |
-| IndiScale        | Henrik tom Wörden | Quality and FAIRness of entities are successfully annotated. |
-| PoLis / Kadi4Mat |                   | Entities can be exported to other dataspaces.                |
+<b style="color: red; font-size: 32pt">TODO</b>
+
+| Role/Name        | Expectations                                                 |
+|------------------|--------------------------------------------------------------|
+| IndiScale        | Quality and FAIRness of entities are successfully annotated. |
+| PoLis / Kadi4Mat | Entities can be exported to other dataspaces.                |
+| BatCAT Dataspace | Receive valuable dataset offers.                                      |
+| FAIR DS Project  | Showcase the concept of FAIR Data Spaces with a relevant, plausible and convincing use case. |
 
 
+<!--
 ## Architecture Constraints
 
 <https://docs.arc42.org/section-2/>
@@ -68,9 +76,11 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > Any requirement that constrains software architects in their freedom of design and implementation
 > decisions or decision about the development process. These constraints sometimes go beyond
 > individual systems and are valid for whole organizations and companies.
+-->
 
 ## Context and Scope
 
+<!--
 <https://docs.arc42.org/section-3/>
 
 > System scope and context - as the name suggests - delimits your system (i.e. your scope) from all
@@ -79,14 +89,19 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 >
 > If necessary, differentiate the business context (domain specific inputs and outputs) from the
 > technical context (channels, protocols, hardware).
+-->
 
 
 
 ### Business Context
 
+<!--
 > Specification of all communication partners (users, IT-systems, …) with explanations of domain
 > specific inputs and outputs or interfaces. Optionally you can add domain specific formats or
 > communication protocols.
+-->
+
+<b style="color: red; font-size: 32pt">TODO</b>
 
 **\<Diagram or Table>**
 
@@ -94,9 +109,11 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ### Technical Context
 
+<!--
 > Technical interfaces (channels and transmission media) linking your system to its environment. In
 > addition a mapping of domain specific input/output to the channels, i.e. an explanation with I/O
 > uses which channel.
+-->
 
 #### System Landscape
 
@@ -109,6 +126,7 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 **\<Mapping Input/Output to Channels>**
 
+<!--
 ## Solution Strategy
 
 <https://docs.arc42.org/section-4/>
@@ -124,9 +142,11 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 >   tasks to third parties.
 
 
+-->
 
 ## Building Block View
 
+<!--
 <https://docs.arc42.org/section-5/>
 
 > The building block view shows the static decomposition of the system into building blocks (modules,
@@ -136,14 +156,15 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 >
 > This view is mandatory for every architecture documentation. In analogy to a house this is the floor
 > plan.
+-->
 
+<b style="color: red; font-size: 32pt">TODO</b>
 
 ![System Landscape Diagram](embed:buildingBlocks)
 
 ### Whitebox Overall System
 
-
-
+<!--
 > Here you describe the decomposition of the overall system using the following white box template. It contains
 >
 > - an overview diagram
@@ -156,7 +177,9 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > Since there are so many ways to specify interfaces why do not provide a specific template for them.
 >
 > In the best case you will get away with examples or simple signatures.
+-->
 
+<b style="color: red; font-size: 32pt">TODO</b>
 
 ***\<Overview Diagram>***
 
@@ -297,6 +320,9 @@ LinkAhead crawler software.
 
 ## Runtime View
 
+<b style="color: red; font-size: 32pt">TODO</b>
+
+<!--
 [https://docs.arc42.org/section-6/](https://docs.arc42.org/section-6/)
 
 > The runtime view describes concrete behavior and interactions of the system’s building blocks in form of scenarios from the following areas:
@@ -308,6 +334,7 @@ LinkAhead crawler software.
 >
 > Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their architectural relevancy. It is not important to describe a large number of scenarios. You should rather document a representative selection.
 
+-->
 ### \<Runtime Scenario 1>
 
 
@@ -324,6 +351,9 @@ LinkAhead crawler software.
 
 ## Deployment View
 
+<b style="color: red; font-size: 32pt">TODO</b>
+
+<!--
 [https://docs.arc42.org/section-7/](https://docs.arc42.org/section-7/)
 
 > The deployment view describes:
@@ -337,7 +367,10 @@ LinkAhead crawler software.
 >
 > From a software perspective it is sufficient to capture those elements of the infrastructure that are needed to show the deployment of your building blocks. Hardware architects can go beyond that and describe the infrastructure to any level of detail they need to capture.
 
+-->
 ### Infrastructure Level 1
+
+<!--
 
 > Describe (usually in a combination of diagrams, tables, and text):
 >
@@ -346,6 +379,7 @@ LinkAhead crawler software.
 > 3. Quality and/or performance features of the infrastructure
 > 4. the mapping of software artifacts (building blocks) to elements of the infrastructure
  
+ -->
 
 ***\<Overview Diagram>***
 
@@ -374,8 +408,10 @@ Mapping of Building Blocks to Infrastructure
 
 *\<diagram + explanation>*
 
+
 ## Cross-cutting Concepts
 
+<!--
 [https://docs.arc42.org/section-8/](https://docs.arc42.org/section-8/)
 
 > This section describes overall, principal regulations and solution ideas that are relevant in multiple parts (→ cross-cutting) of your system. Such concepts are often related to multiple building blocks. They include many different topics, such as
@@ -385,6 +421,7 @@ Mapping of Building Blocks to Infrastructure
 > - rules for using specific technology
 > - principale, often technical decisions of overall decisions
 > - implementation rules
+-->
 
 
 ### Using YAML for storing machine readable information
@@ -404,6 +441,7 @@ Multiple components of the software use REST interfaces for data exchange.
 
 *\<explanation>*
 
+<!--
 ## Architecture Decisions
 
 <https://docs.arc42.org/section-9/>
@@ -450,6 +488,8 @@ Multiple components of the software use REST interfaces for data exchange.
 <https://docs.arc42.org/section-11/>
 
 > A list of identified technical risks or technical debts, ordered by priority
+
+-->
 
 ## Glossary
 

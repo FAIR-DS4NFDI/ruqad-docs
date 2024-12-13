@@ -21,7 +21,7 @@ pages:
   needs: ["validate"]
   script:
     - cd src/
-    - /opt/structurizr-site-generatr/bin/structurizr-site-generatr generate-site -w workspace.dsl -o ../public
+    - /opt/structurizr-site-generatr/bin/structurizr-site-generatr generate-site -w workspace.dsl -d main -o ../public
   pages: true
   artifacts:
     paths:

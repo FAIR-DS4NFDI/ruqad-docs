@@ -14,7 +14,7 @@ otherwise they will not find the documentation sources.
 Running `tools/serve` starts a web server on http://localhost:8080 which renders the documentation
 as html, including the diagrams.
 
-This uses the *structurizr-site-generatr* to serve the documentation saved in `src/workspace.dsl`.
+This uses the [structurizr-site-generatr](https://github.com/avisi-cloud/structurizr-site-generatr) to serve the documentation saved in `src/workspace.dsl`.
 
 ## validate ##
 

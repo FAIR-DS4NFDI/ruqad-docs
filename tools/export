@@ -1,0 +1,5 @@
+#!/bin/sh
+
+FORMAT="${FORMAT:-"plantuml/c4plantuml"}"
+OUTPUT="${OUTPUT:-"output"}"
+docker run -it --rm -v $PWD:/usr/local/structurizr structurizr/cli export -workspace workspace.dsl -format "$FORMAT" -output "$OUTPUT"
