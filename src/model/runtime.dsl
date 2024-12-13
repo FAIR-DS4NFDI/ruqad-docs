@@ -1,7 +1,7 @@
 # Runtime view definitions
 
-dynamic ruqad rq_runtime "Ingestion of a data item" {
-    title "Foobar"
+dynamic ruqad rq_runtime {
+    title "Runtime view: Ingestion of a data item"
 
     # Get item
     ruqad.monitor -> kadi_polis "Poll new items"

@@ -318,8 +318,6 @@ LinkAhead crawler software.
 
 ## Runtime View
 
-<b style="color: red; font-size: 32pt">TODO</b>
-
 <!--
 [https://docs.arc42.org/section-6/](https://docs.arc42.org/section-6/)
 
@@ -340,16 +338,17 @@ is described here.
 ### Ingestion of a data item
 
 ![Data item ingestion](embed:rq_runtime)
--   *\<insert runtime diagram or textual description of the scenario>*
 
--   *\<insert description of the notable aspects of the interactions
-    between the building block instances depicted in this diagram.>*
+- The monitor continually polls the Kadi4Mat server for new items.
+- Each new item is sequentially passed to the Demonstrator 4.2 quality checker for *data* quality
+  checks and the crawler component for *metadata* FAIRness evaluation before being inserted into the
+  target dataspace at BatCAT.
 
-### \<Runtime Scenario 2>
+<!-- ### \<Runtime Scenario 2> -->
 
-### …
+<!-- ### … -->
 
-### \<Runtime Scenario n>
+<!-- ### \<Runtime Scenario n> -->
 
 ## Deployment View
 
