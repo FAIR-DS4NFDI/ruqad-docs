@@ -21,6 +21,10 @@ workspace "RuQaD" "Architecture Overview on the RuQaD Demonstrator" {
             include *
         }
 
+        component ruqad.crawler rq_crawler "Building Blocks" {
+            include *
+        }
+
         styles {
             element "Element" {
                 color white

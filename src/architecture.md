@@ -160,8 +160,6 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 <b style="color: red; font-size: 32pt">TODO</b>
 
-![System Landscape Diagram](embed:buildingBlocks)
-
 ### Whitebox Overall System
 
 <!--
@@ -181,12 +179,13 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 <b style="color: red; font-size: 32pt">TODO</b>
 
-***\<Overview Diagram>***
+![Building Blocks](embed:buildingBlocks)
 
-Motivation  
-*\<text explanation>*
+**Rationale:** The RuQaD demonstrator uses *service integration* to achieve the goal of connecting
+dataspaces in a FAIR manner.  It configures and combines existing services to multiple stages of
+FAIRness evalution and data integration.
 
-Contained Building Blocks  
+**Contained Building Blocks:**
 *\<Description of contained building block (black boxes)>*
 
 Important Interfaces  
@@ -224,7 +223,7 @@ component so far seems excellent, but is beyond RuQaD's responsibility.
 - It is possible and may be desirable to parallelize the quality check for multiple files by
   distributing the load on a number of service workers, instead of checking files sequentially.
 
-#### LinkAhead Crawler
+#### RuQaD Crawler
 
 *\<Purpose/Responsibility>*
 Scans files in specific directories of the file system and synchronizes them with the LinkAhead instance. Before insertion and updates of
@@ -291,6 +290,8 @@ LinkAhead crawler software.
 ### Level 2
 
 #### White Box *\<building block 1>*
+
+![Component Diagram](embed:rq_crawler)
 
 *\<white box template>*
 

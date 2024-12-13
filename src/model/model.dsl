@@ -14,11 +14,15 @@ model {
             ruqad = softwareSystem "RuQaD Demonstrator" "A purely functional component for checking FAIRness, invoking the QA pipeline and ingesting data to LinkAhead." {
                 monitor = container "RuQaD monitor"
                 quality_checker = container "Quality checker"
-                group "Crawler customization" {
-                    crawler_wrapper = container "RuQaD Crawler"
-                    converter = container "Converter"
-                    cfood = container "CFood declaration"
-                    identifiables = container "Identifiables declaration"
+                crawler = container "RuQaD Crawler" {
+                    crawler_wrapper = component "Crawler wrapper"
+                    converter = component "Converter"
+                    cfood = component "CFood declaration"
+                    identifiables = component "Identifiables declaration"
+
+                    crawler_wrapper -> cfood
+                    crawler_wrapper -> identifiables
+                    cfood -> converter "Uses"
                 }
             }
             demo_42 = softwaresystem "Quality assurance 4.2 " "Gitlab pipeline for quality assurance based on the demonstrator 4.2." {
@@ -44,12 +48,13 @@ Framework for file scanning, LinkAhead entity building and synchronization."
 
     kadi_polis -> ruqad.monitor "Monitored by"
     ruqad.monitor -> dataspace_node "Inserts data"
-    ruqad.cfood -> ruqad.converter "Uses"
     ruqad.monitor -> ruqad.quality_checker
-    ruqad.monitor -> ruqad.crawler_wrapper
-    ruqad.crawler_wrapper -> ruqad.cfood
-    ruqad.crawler_wrapper -> ruqad.identifiables
-    ruqad.crawler_wrapper -> linkahead_crawler "Invokes"
+    ruqad.monitor -> ruqad.crawler
+    ruqad.crawler -> linkahead_crawler "Invokes"
     # linkahead_crawler -> ruqad.crawler_wrapper
     ruqad.quality_checker -> demo_42 "Triggers pipeline"
+
+    ruqad.monitor -> ruqad.crawler.crawler_wrapper
+    ruqad.crawler.crawler_wrapper -> linkahead_crawler
+
 }
