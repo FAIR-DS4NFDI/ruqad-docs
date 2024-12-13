@@ -21,9 +21,11 @@ workspace "RuQaD" "Architecture Overview on the RuQaD Demonstrator" {
             include *
         }
 
-        component ruqad.crawler rq_crawler "Building Blocks" {
+        component ruqad.crawler rq_crawler "The crawler component" {
             include *
         }
+
+        !include model/runtime.dsl
 
         styles {
             element "Element" {

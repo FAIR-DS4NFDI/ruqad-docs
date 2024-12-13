@@ -333,9 +333,13 @@ LinkAhead crawler software.
 > Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their architectural relevancy. It is not important to describe a large number of scenarios. You should rather document a representative selection.
 
 -->
-### \<Runtime Scenario 1>
 
+The RuQaD monitor runs continually and acts on new data items.  The handling of one such data item
+is described here.
 
+### Ingestion of a data item
+
+![Data item ingestion](embed:rq_runtime)
 -   *\<insert runtime diagram or textual description of the scenario>*
 
 -   *\<insert description of the notable aspects of the interactions

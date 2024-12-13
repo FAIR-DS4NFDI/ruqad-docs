@@ -7,7 +7,7 @@ model {
     }
     group "BatCAT Data Space" {
         # Shouldn't this be split up in LinkAhead and EDC?
-        dataspace_node = softwaresystem "BatCAT Data Space Node" "LinkAhead and EDC-based components of the BatCAT Data Space."
+        dataspace_node = softwareSystem "BatCAT Data Space Node" "LinkAhead and EDC-based components of the BatCAT Data Space."
         data_consumer = person "Data Consumer" "R&D departments from the consortial partners of the BatCAT Data Space."
 
         group "RuQaD Service" {
