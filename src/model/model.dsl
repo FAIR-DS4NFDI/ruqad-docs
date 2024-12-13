@@ -10,12 +10,23 @@ model {
         dataspace_node = softwaresystem "BatCAT Data Space Node" "LinkAhead and EDC-based components of the BatCAT Data Space."
         data_consumer = person "Data Consumer" "R&D departments from the consortial partners of the BatCAT Data Space."
 
-        group "IndiScale" {
-            quality_checker = softwaresystem "Quality Assurance" "Gitlab pipeline for quality assurance based on the demonstrator 4.2." {
+        group "RuQaD Service" {
+            ruqad = softwareSystem "RuQaD Demonstrator" "A purely functional component for checking FAIRness, invoking the QA pipeline and ingesting data to LinkAhead." {
+                monitor = container "RuQaD monitor"
+                quality_checker = container "Quality checker"
+                group "Crawler customization" {
+                    crawler_wrapper = container "RuQaD Crawler"
+                    converter = container "Converter"
+                    cfood = container "CFood declaration"
+                    identifiables = container "Identifiables declaration"
+                }
+            }
+            demo_42 = softwaresystem "Quality assurance 4.2 " "Gitlab pipeline for quality assurance based on the demonstrator 4.2." {
                 !docs quality_checker.md
             }
-            ruqad = softwaresystem "RuQaD Demonstrator" "A purely functional component for checking FAIRness, invoking the QA pipeline and ingesting data to LinkAhead."
             data_curator = person "Data Curator" "IndiScale curates data from PoLis and offers them for reuse in the BatCAT Data Space."
+            linkahead_crawler = softwaresystem "LinkAhead Crawler" "\
+Framework for file scanning, LinkAhead entity building and synchronization."
         }
     }
 
@@ -23,13 +34,22 @@ model {
     # linkahead = softwaresystem "LinkAhead" "LinkAhead research datamanagement system."
     #edc_framework = softwaresystem "ECD Framework" "Catalog, Provider Connector, Identity Hub and other components of the BatCAT dataspace."
 
-
-
     ruqad -> kadi_polis "Pull battery-related datasets."
-    ruqad -> quality_checker "Invoke quality assurace pipeline on raw data from PoLiS."
+    ruqad -> demo_42 "Invoke quality assurace pipeline on raw data from PoLiS."
     ruqad -> dataspace_node "Ingest data to LinkAhead."
-    # ruqad -> linkahead_crawler "Ingest data to LinkAhead with the LinkAhead-Crawler."
+    ruqad -> linkahead_crawler "Ingest data to LinkAhead with the LinkAhead crawler."
 
     data_consumer -> dataspace_node "Browse datasets and request access for reuse."
     data_curator -> dataspace_node "Review and control the offering of datasets to the BatCAT Data Space."
+
+    kadi_polis -> ruqad.monitor "Monitored by"
+    ruqad.monitor -> dataspace_node "Inserts data"
+    ruqad.cfood -> ruqad.converter "Uses"
+    ruqad.monitor -> ruqad.quality_checker
+    ruqad.monitor -> ruqad.crawler_wrapper
+    ruqad.crawler_wrapper -> ruqad.cfood
+    ruqad.crawler_wrapper -> ruqad.identifiables
+    ruqad.crawler_wrapper -> linkahead_crawler "Invokes"
+    # linkahead_crawler -> ruqad.crawler_wrapper
+    ruqad.quality_checker -> demo_42 "Triggers pipeline"
 }
