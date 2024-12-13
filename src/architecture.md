@@ -181,15 +181,20 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ![Building Blocks](embed:buildingBlocks)
 
-**Rationale:** The RuQaD demonstrator uses *service integration* to achieve the goal of connecting
+##### Rationale #####
+
+The RuQaD demonstrator uses *service integration* to achieve the goal of connecting
 dataspaces in a FAIR manner.  It configures and combines existing services to multiple stages of
 FAIRness evalution and data integration.
 
-**Contained Building Blocks:**
-*\<Description of contained building block (black boxes)>*
+##### Contained Building Blocks #####
 
-Important Interfaces  
-*\<Description of important interfaces>*
+- **Monitor:** Checks for new data in a Kadi4Mat instance.
+- **Quality checker:** Passes new data to the quality checker which was developed in WP 4.2 of the
+  previous Fair DS project.
+- **RuQaD crawler:** Calls the LinkAhead crawler for metadata checking and for insertion into the
+  BatCAT data space node.
+
 
 #### Quality Checker ####
 

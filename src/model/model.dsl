@@ -47,10 +47,10 @@ Framework for file scanning, LinkAhead entity building and synchronization."
     data_curator -> dataspace_node "Review and control the offering of datasets to the BatCAT Data Space."
 
     kadi_polis -> ruqad.monitor "Monitored by"
-    ruqad.monitor -> dataspace_node "Inserts data"
+    ruqad.crawler -> linkahead_crawler "Invokes"
+    ruqad.crawler -> dataspace_node "Inserts data"
     ruqad.monitor -> ruqad.quality_checker
     ruqad.monitor -> ruqad.crawler
-    ruqad.crawler -> linkahead_crawler "Invokes"
     # linkahead_crawler -> ruqad.crawler_wrapper
     ruqad.quality_checker -> demo_42 "Triggers pipeline"
 
