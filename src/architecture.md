@@ -181,14 +181,31 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ![Building Blocks](embed:buildingBlocks)
 
-Motivation  
-*\<text explanation>*
+##### Rationale #####
 
-Contained Building Blocks  
-*\<Description of contained building block (black boxes)>*
+The RuQaD demonstrator uses *service integration* to achieve the goal of connecting
+dataspaces in a FAIR manner.  It configures and combines existing services to multiple stages of
+FAIRness evalution and data integration.
 
-Important Interfaces  
-*\<Description of important interfaces>*
+##### Contained Building Blocks #####
+
+- **Monitor:** Checks for new data in a Kadi4Mat instance.
+- **Quality checker:** Passes new data to the quality checker which was developed in WP 4.2 of the
+  previous Fair DS project.
+- **RuQaD crawler:** Calls the LinkAhead crawler for metadata checking and for insertion into the
+  BatCAT data space node.
+
+#### Monitor ####
+
+The monitor continuously polls a *Kadi4Mat* instance (representing the source dataspace) for new
+data items.
+
+Each new data item is passed on to the quality checker for evaluation of the data quality.
+Afterwards the monitor passes the quality check report and the original data to the crawler, which
+eventually leads to insertion in the *BatCAT* data space where the items can be checked by *data
+curators* and retrieved by *data consumers*.
+
+**Source code:** `src/ruqad/monitor.py`
 
 #### Quality Checker ####
 
@@ -206,10 +223,12 @@ module `ruqad.qualitycheck`.
 
 *\<(Optional) Quality/Performance Characteristics>*
 
-The quality checker relies on the [demonstrator 4.2](https://git.rwth-aachen.de/fair-ds/ap-4-2-demonstrator/ap-4.2-data-validation-and-quality-assurance-demonstrator) to perform the checks.  The quality of this
-component so far seems excellent, but is beyond RuQaD's responsibility.
+The quality checker relies on the [demonstrator 4.2](https://git.rwth-aachen.de/fair-ds/ap-4-2-demonstrator/ap-4.2-data-validation-and-quality-assurance-demonstrator) to perform the checks.  Thus, RuQaD relies
+on further maintenance by the demonstrator's development team.
 
 *\<(Optional) Directory/File Location>*
+
+**Source code:** `src/ruqad/qualitycheck.py`
 
 *\<(Optional) Fulfilled Requirements>*
 
@@ -222,16 +241,99 @@ component so far seems excellent, but is beyond RuQaD's responsibility.
 - It is possible and may be desirable to parallelize the quality check for multiple files by
   distributing the load on a number of service workers, instead of checking files sequentially.
 
-#### LinkAhead Crawler
+#### RuQaD Crawler
 
 *\<Purpose/Responsibility>*
-Scans files in specific directories of the file system and synchronizes them with the LinkAhead instance. Before insertion and updates of
-`Records` in LinkAhead, a meta data check is carried out to verify whether the meta data that was exported from kadi4mat is compatible with
-the target data model (in LinkAhead and the EDC). Validation failure leads to specific validation error messages and prevents insertions or updates
-of the scan result. The software component also carries out a check of data FAIRness of the data exported from kadi4mat (in ELN format).
+
+The RuQaD Crawler executes metadata checks and bundles data and metadata for insertion into the
+BatCAT dataspace.
 
 *\<Interface(s)>*
-The crawler component consists of:
+
+The crawler is implemented as a Python module with a function `trigger_crawler(...)` which looks for
+data and quality check files to evaluate and insert into the BatCAT dataspace.  It uses LinkAhead's
+crawler framework for metadata checks, object creation and interaction with the target dataspace.
+
+*\<(Optional) Quality/Performance Characteristics>*
+*\<(Optional) Directory/File Location>*
+
+**Source code:** `src/ruqad/crawler.py`
+
+*\<(Optional) Fulfilled Requirements>*
+*\<(optional) Open Issues/Problems/Risks>*
+
+
+<!-- #### \<Name black box 2> -->
+
+<!-- *\<black box template>* -->
+
+<!-- *\<Purpose/Responsibility>* -->
+<!-- *\<Interface(s)>* -->
+<!-- *\<(Optional) Quality/Performance Characteristics>* -->
+<!-- *\<(Optional) Directory/File Location>* -->
+<!-- *\<(Optional) Fulfilled Requirements>* -->
+<!-- *\<(optional) Open Issues/Problems/Risks>* -->
+
+
+<!-- #### \<Name black box n> -->
+
+<!-- *\<black box template>* -->
+
+<!-- *\<Purpose/Responsibility>* -->
+<!-- *\<Interface(s)>* -->
+<!-- *\<(Optional) Quality/Performance Characteristics>* -->
+<!-- *\<(Optional) Directory/File Location>* -->
+<!-- *\<(Optional) Fulfilled Requirements>* -->
+<!-- *\<(optional) Open Issues/Problems/Risks>* -->
+
+<!-- #### \<Name interface 1> -->
+
+<!-- … -->
+
+<!-- #### \<Name interface m> -->
+
+### Level 2
+
+#### White Box RuQaD Crawler
+
+![Component Diagram](embed:rq_crawler)
+
+###### Motivation ######
+
+The Crawler reuses functionality of the LinkAhead crawler:
+- Declarative creation of data objects from structured input data.
+- Idempotent and context sensitive scan-create-and-insert-or-update procedures.
+
+This functionality is extended by a custom converters and data transformers.
+
+##### Contained Building Blocks #####
+
+- **Crawler wrapper:** Calls the LinkAhead crawler on the files given by the RuQaD monitor, with the
+  correct settings.
+- **CFood declaration:** Specification of how entities in BatCAT shall be [constructed from input
+  data](https://docs.indiscale.com/caosdb-crawler/cfood.html).
+- **Identifiables declaration:** Specification of [identifiying properties](https://docs.indiscale.com/caosdb-crawler/concepts.html#identifiables) of entities in BatCAT.
+- **Converter:** Custom conversion plugin to create resulting (sub) entities.
+- **Transformer:** Custom conversion plugin to transform input data into properties.
+
+*<(optionally) describe important interfaces>*
+
+##### Crawler wrapper #####
+
+<b style="color: red; font-size: 32pt">TODO: rewrite from overall view to wrapper component description</b>
+
+*\<Purpose/Responsibility>*  
+
+The crawler wrapper scans files in specific directories of the file system and synchronizes them
+with the LinkAhead instance. Before insertion and updates of `Records` in LinkAhead, a meta data
+check is carried out to verify whether the meta data that was exported from kadi4mat is compatible
+with the target data model (in LinkAhead and the EDC). Validation failure leads to specific
+validation error messages and prevents insertions or updates of the scan result. The software
+component also carries out a check of data FAIRness of the data exported from kadi4mat (in ELN
+format).
+
+*\<Interface(s)>*
+The crawler uses:
 - A cfood (file in YAML format) which specifies the mapping from data found on the file system to `Records` in LinkAhead.
 - A definition of the identifiables (file in YAML format) which defines the properties that are needed to uniquely identify `Records` of the data model in LinkAhead.
 - The data model definition (file in YAML format). This is needed by the crawler to do the meta data check.
@@ -257,64 +359,29 @@ LinkAhead crawler software.
 
 *\<(optional) Open Issues/Problems/Risks>*
 
-#### \<Name black box 2>
+<!-- #### White Box *\<building block 2>* -->
 
-*\<black box template>*
+<!-- *\<white box template>* -->
 
-*\<Purpose/Responsibility>*
-*\<Interface(s)>*
-*\<(Optional) Quality/Performance Characteristics>*
-*\<(Optional) Directory/File Location>*
-*\<(Optional) Fulfilled Requirements>*
-*\<(optional) Open Issues/Problems/Risks>*
+<!-- … -->
 
+<!-- #### White Box *\<building block m>* -->
 
-#### \<Name black box n>
+<!-- *\<white box template>* -->
 
-*\<black box template>*
+<!-- ### Level 3 -->
 
-*\<Purpose/Responsibility>*
-*\<Interface(s)>*
-*\<(Optional) Quality/Performance Characteristics>*
-*\<(Optional) Directory/File Location>*
-*\<(Optional) Fulfilled Requirements>*
-*\<(optional) Open Issues/Problems/Risks>*
+<!-- #### White Box \<\_building block x.1\_\> -->
 
-#### \<Name interface 1>
+<!-- *\<white box template>* -->
 
-…
+<!-- #### White Box \<\_building block x.2\_\> -->
 
-#### \<Name interface m>
+<!-- *\<white box template>* -->
 
-### Level 2
+<!-- #### White Box \<\_building block y.1\_\> -->
 
-#### White Box *\<building block 1>*
-
-*\<white box template>*
-
-#### White Box *\<building block 2>*
-
-*\<white box template>*
-
-…
-
-#### White Box *\<building block m>*
-
-*\<white box template>*
-
-### Level 3
-
-#### White Box \<\_building block x.1\_\>
-
-*\<white box template>*
-
-#### White Box \<\_building block x.2\_\>
-
-*\<white box template>*
-
-#### White Box \<\_building block y.1\_\>
-
-*\<white box template>*
+<!-- *\<white box template>* -->
 
 ## Runtime View
 
