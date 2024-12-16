@@ -385,8 +385,6 @@ LinkAhead crawler software.
 
 ## Runtime View
 
-<b style="color: red; font-size: 32pt">TODO</b>
-
 <!--
 [https://docs.arc42.org/section-6/](https://docs.arc42.org/section-6/)
 
@@ -400,19 +398,24 @@ LinkAhead crawler software.
 > Remark: The main criterion for the choice of possible scenarios (sequences, workflows) is their architectural relevancy. It is not important to describe a large number of scenarios. You should rather document a representative selection.
 
 -->
-### \<Runtime Scenario 1>
 
+The RuQaD monitor runs continually and acts on new data items.  The handling of one such data item
+is described here.
 
--   *\<insert runtime diagram or textual description of the scenario>*
+### Ingestion of a data item
 
--   *\<insert description of the notable aspects of the interactions
-    between the building block instances depicted in this diagram.>*
+![Data item ingestion](embed:rq_runtime)
 
-### \<Runtime Scenario 2>
+- The monitor continually polls the Kadi4Mat server for new items.
+- Each new item is sequentially passed to the Demonstrator 4.2 quality checker for *data* quality
+  checks and the crawler component for *metadata* FAIRness evaluation before being inserted into the
+  target dataspace at BatCAT.
 
-### …
+<!-- ### \<Runtime Scenario 2> -->
 
-### \<Runtime Scenario n>
+<!-- ### … -->
+
+<!-- ### \<Runtime Scenario n> -->
 
 ## Deployment View
 
