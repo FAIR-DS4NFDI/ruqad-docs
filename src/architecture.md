@@ -39,12 +39,10 @@ The normative description of all requirements is contained in the non-public pro
 
 RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for definitions):
 
-<!-- TODO: Alex, Begründungen -->
-
-- Operability
-- Compatibility
-- Transferability
-- Maintainability
+- **Operability:** As a demonstrator, the main quality goal of the software is to be understood and learned. This facilitates building prototypes or production software based on the functionality of the demonstrator.
+- **Compatibility:** The system connects different software systems and therefore acts as a compatibility component.
+- **Transferability:** In order to serve as a tool for demonstration in different environments, the system needs to be built at a high level of transferability.
+- **Maintainability:** As a demonstrator, some parts of the system can be considered work-in-progress and need to be modified, corrected or adapted over time.
 <!--TODO: Maintainability einschränken, weil Demonstrator -->
 
 ### Stakeholders
@@ -207,30 +205,30 @@ curators* and retrieved by *data consumers*.
 
 #### Quality Checker ####
 
-*\<Purpose/Responsibility>*
+<!--*\<Purpose/Responsibility>*-->
 
 The quality checker executes data quality checks on the data which was retrieved from the input
 dataspace (a Kadi4Mat instance in this case).  It provides a structured summary for other components
 and also a detailed report for human consumption.
 
-*\<Interface(s)>*
+<!--*\<Interface(s)>*-->
 
 The quality checker is implemented as a Python class `QualityChecker` which provides mainly a
 `check(filename, target_dir)` method to check individual files.  This class is available in the
 module `ruqad.qualitycheck`.
 
-*\<(Optional) Quality/Performance Characteristics>*
+<!--*\<(Optional) Quality/Performance Characteristics>*-->
 
 The quality checker relies on the [demonstrator 4.2](https://git.rwth-aachen.de/fair-ds/ap-4-2-demonstrator/ap-4.2-data-validation-and-quality-assurance-demonstrator) to perform the checks.  Thus, RuQaD relies
 on further maintenance by the demonstrator's development team.
 
-*\<(Optional) Directory/File Location>*
+<!--*\<(Optional) Directory/File Location>*-->
 
 **Source code:** `src/ruqad/qualitycheck.py`
 
-*\<(Optional) Fulfilled Requirements>*
+<!--*\<(Optional) Fulfilled Requirements>*
 
-*\<(optional) Open Issues/Problems/Risks>*
+*\<(optional) Open Issues/Problems/Risks>*-->
 
 ##### Open issues #####
 
@@ -241,24 +239,24 @@ on further maintenance by the demonstrator's development team.
 
 #### RuQaD Crawler
 
-*\<Purpose/Responsibility>*
+<!--*\<Purpose/Responsibility>*-->
 
 The RuQaD Crawler executes metadata checks and bundles data and metadata for insertion into the
 BatCAT dataspace.
 
-*\<Interface(s)>*
+<!--*\<Interface(s)>*-->
 
 The crawler is implemented as a Python module with a function `trigger_crawler(...)` which looks for
 data and quality check files to evaluate and insert into the BatCAT dataspace.  It uses LinkAhead's
 crawler framework for metadata checks, object creation and interaction with the target dataspace.
 
-*\<(Optional) Quality/Performance Characteristics>*
-*\<(Optional) Directory/File Location>*
+<!--*\<(Optional) Quality/Performance Characteristics>*
+*\<(Optional) Directory/File Location>*-->
 
 **Source code:** `src/ruqad/crawler.py`
 
-*\<(Optional) Fulfilled Requirements>*
-*\<(optional) Open Issues/Problems/Risks>*
+<!--*\<(Optional) Fulfilled Requirements>*
+*\<(optional) Open Issues/Problems/Risks>*-->
 
 
 <!-- #### \<Name black box 2> -->
@@ -320,7 +318,7 @@ This functionality is extended by a custom converters and data transformers.
 
 <b style="color: red; font-size: 32pt">TODO: rewrite from overall view to wrapper component description</b>
 
-*\<Purpose/Responsibility>*  
+<!--*\<Purpose/Responsibility>*  -->
 
 The crawler wrapper scans files in specific directories of the file system and synchronizes them
 with the LinkAhead instance. Before insertion and updates of `Records` in LinkAhead, a meta data
@@ -330,7 +328,7 @@ validation error messages and prevents insertions or updates of the scan result.
 component also carries out a check of data FAIRness of the data exported from kadi4mat (in ELN
 format).
 
-*\<Interface(s)>*
+<!--*\<Interface(s)>*-->
 The crawler uses:
 - A cfood (file in YAML format) which specifies the mapping from data found on the file system to `Records` in LinkAhead.
 - A definition of the identifiables (file in YAML format) which defines the properties that are needed to uniquely identify `Records` of the data model in LinkAhead.
@@ -341,9 +339,10 @@ The crawler uses:
 The interface is a Python-function that is implemented as a module into the RuQaD demonstrator. The function calls the scanner and main crawler functions of the
 LinkAhead crawler software.
 
-*\<(Optional) Quality/Performance Characteristics>*
+<!--*\<(Optional) Quality/Performance Characteristics>*
 
-*\<(Optional) Directory/File Location>*
+*\<(Optional) Directory/File Location>*-->
+**Source code:** 
 - Main interface: `ruqad/src/ruqad/crawler.py`
 - Crawler extensions:
   - Custom converters (currently not used): `ruqad/src/ruqad/crawler-extensions/converters.py`
@@ -355,7 +354,7 @@ LinkAhead crawler software.
 - Check of FAIRness of data from ELN file.
 - Meta data check
 
-*\<(optional) Open Issues/Problems/Risks>*
+<!--*\<(optional) Open Issues/Problems/Risks>*-->
 
 <!-- #### White Box *\<building block 2>* -->
 
