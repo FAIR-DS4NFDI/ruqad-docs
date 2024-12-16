@@ -573,7 +573,16 @@ that can be interpreted by LinkAhead. Afterwards it is loaded into LinkAhead and
 
 > A list of identified technical risks or technical debts, ordered by priority-->
 
-<!-- TODO: Alex macht draft -->
+### Software is dependent on external gitlab pipeline
+
+The quality checker pipeline is run in an external instance of gitlab. As this external system might be subject to changes in software or API the whole procedure
+of the demonstrator can become unstable in case of incompatible changes.
+
+### The ELN-File-Format is work-in-progress
+
+Parts of the ELN-File-Format are not completely specified and also software implementations (e.g. in kadi4mat) are in parts incomplete and contain bugs.
+Currently the demonstrator implements a few workarounds for known problems. These can be considered technical debts that need to be removed when the ELN-File-Format
+and the software implementing it reach a stable version.
 
 
 ## Glossary
@@ -586,5 +595,5 @@ that can be interpreted by LinkAhead. Afterwards it is loaded into LinkAhead and
 | Transferability (ISO 25010) | "System can be transferred from one environment to another." |
 | Maintainability (ISO 25010) | "System can be modified, corrected, adapted or improved due to changes in environment or requirements." |
 | Compatibility (ISO 25010) | "Two or more systems can exchange information while sharing the same environment." |
-| FAIR | TODO |
-| ELN | TODO |
+| FAIR | Findable, Accessible, Interoperable, Reusable (defined in: https://doi.org/10.1038/sdata.2016.18) |
+| ELN | Electronic Lab Notebook |
