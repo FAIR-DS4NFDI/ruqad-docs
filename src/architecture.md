@@ -512,11 +512,13 @@ Multiple components of the software use REST interfaces for data exchange.
 
 ### ELN-FileFormat / ROCrate
 
-<!-- TODO: Alex -->
+The ELN-FileFormat is a standard for exchanging information between electronic lab notebooks and other research data management software. It is build
+on top of ROCrate (Research Object Crate) which is a standard for self-contained data storage in accordance with the FAIR principles.
 
 ### ETL (Extract-Transform-Load)
 
-<!-- TODO: Alex -->
+In pinciple the whole pipeline can be considered an extract-transform-load process. Data is extracted from kadi4mat. It is transformed into a format
+that can be interpreted by LinkAhead. Afterwards it is loaded into LinkAhead and connected to the EDC.
 
 ### *\<Concept n>*
 
