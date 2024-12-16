@@ -39,11 +39,13 @@ The normative description of all requirements is contained in the non-public pro
 
 RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for definitions):
 
+<!-- TODO: Alex, Begründungen -->
+
 - Operability
 - Compatibility
 - Transferability
 - Maintainability
-
+<!--TODO: Maintainability einschränken, weil Demonstrator -->
 
 ### Stakeholders
 
@@ -101,6 +103,7 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > communication protocols.
 -->
 
+<!-- TODO: Timm -->
 <b style="color: red; font-size: 32pt">TODO</b>
 
 **\<Diagram or Table>**
@@ -119,12 +122,7 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ![System Landscape Diagram](embed:sl)
 
-
-**\<Diagram or Table>**
-
-**\<optionally: Explanation of technical interfaces>**
-
-**\<Mapping Input/Output to Channels>**
+<!-- TODO: Mehr content hinzufügen, z.B. Link zur crawler-doc und Paper -->
 
 <!--
 ## Solution Strategy
@@ -158,8 +156,6 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > plan.
 -->
 
-<b style="color: red; font-size: 32pt">TODO</b>
-
 ### Whitebox Overall System
 
 <!--
@@ -176,6 +172,8 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 >
 > In the best case you will get away with examples or simple signatures.
 -->
+
+<!-- TODO: Alex, aufräumen, überschriften wegmachen etc. -->
 
 <b style="color: red; font-size: 32pt">TODO</b>
 
@@ -502,8 +500,24 @@ format that is machine-readable and also human-readable at the same time.
 Multiple components of the software use REST interfaces for data exchange.
 
 - Gitlab-API
-- kadi4mat-export (?)
+- kadi4mat-export
 - LinkAhead
+
+### FAIR
+
+<!-- TODO: Timm -->
+
+### Dataspaces
+
+<!-- TODO: Timm -->
+
+### ELN-FileFormat / ROCrate
+
+<!-- TODO: Alex -->
+
+### ETL (Extract-Transform-Load)
+
+<!-- TODO: Alex -->
 
 ### *\<Concept n>*
 
@@ -550,14 +564,16 @@ Multiple components of the software use REST interfaces for data exchange.
 >   efficiency or performance. Example: The system reacts to a user’s request within one second.
 > - Change scenarios describe a modification of the system or of its immediate environment. Example:
 >   Additional functionality is implemented or requirements for a quality attribute change.
+-->
 
 ## Risks and Technical Debts
 
-<https://docs.arc42.org/section-11/>
+<!--<https://docs.arc42.org/section-11/>
 
-> A list of identified technical risks or technical debts, ordered by priority
+> A list of identified technical risks or technical debts, ordered by priority-->
 
--->
+<!-- TODO: Alex macht draft -->
+
 
 ## Glossary
 
@@ -569,3 +585,5 @@ Multiple components of the software use REST interfaces for data exchange.
 | Transferability (ISO 25010) | "System can be transferred from one environment to another." |
 | Maintainability (ISO 25010) | "System can be modified, corrected, adapted or improved due to changes in environment or requirements." |
 | Compatibility (ISO 25010) | "Two or more systems can exchange information while sharing the same environment." |
+| FAIR | TODO |
+| ELN | TODO |
