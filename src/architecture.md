@@ -95,18 +95,43 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 
 ### Business Context
 
-<!--
-> Specification of all communication partners (users, IT-systems, …) with explanations of domain
-> specific inputs and outputs or interfaces. Optionally you can add domain specific formats or
-> communication protocols.
--->
+RuQaD connects an industrial data space (BatCAT data space for the development of a "Battery Cell Assembly
+Twin) with an external research infrastructure (PoLiS - Post Lithium Storage Cluster of Excellence). In this
+regard, RuQaD is a Value-Added Service and addresses several DSSC Building Blocks in compliance FAIR Guiding
+Principles.
 
-<!-- TODO: Timm -->
-<b style="color: red; font-size: 32pt">TODO</b>
+RuQaD builds on FAIR Components (LinkAhead: F1, F2, F3,F4, A1, A2 .eln-File-Format, RO-Crate: F2, F3, I1, I2, I3, Data Models, Provenance & Tracability,
+EDC: A1, A2, I1, I2, I3). It is the focus of RuQaD to promote the Reusability (R) of datasets.
+A central barrier to reusing are quality requirements of the reusing party. RuQaD uses the quality check
+pipeline of the FAIR Data Spaces Demonstrator 4.2 to asses the quality of a given dataset (e.g. missing
+values).
 
-**\<Diagram or Table>**
+Missing license statements (R1.1) or provenance information (R1.2) will be flagged by the RuQaD demonstrator
+as well as incompatibilty with expected standards (R1.3).
 
-**\<optionally: Explanation of external domain interfaces>**
+Loading the datasets to LinkAhead allows to offer the quality-assured and FAIR-compliant datasets in the
+BatCAT data space using the data space's EDC based infrastructure (Data, Services and Offerings Descriptions;
+Publication and Discovery).
+
+Simple and cost-effective reuse of datasets for new products is a central value proposition of data spaces in
+general and the BatCAT data space in particular (Business Model Development).
+
+The use case scenario of datasets from PoLiS is the enrichment of characterization data (e.g. porosity of cathode material of sodium-ion cells) which have been collected in the BatCAT project to develop more reliable and more robust ML models and algorithms (Use Case Development; Data Product Development).
+
+While governance and legal Building Blocks will not be addressed directly by RuQaD, the demonstrator supports
+the protection of personal data and IP rights by checking the presence of licence and provenance meta data
+(Regulatory-Compliance).
+
+Industry partners of the BatCAT data space attempt to develop a digital twin for cell assemply and
+manufacturing of batteries to build greener, more sustainable and cost-effective batteries.
+
+To do this, they need both a large amount of data for training ML models and data from different sources to ensure the robustness of their models. They therefore benefit directly from the integration of quality-checked external data sources.
+
+While some egal and ethical issues of data reuse can be addressed by the licencing of dataset as required by
+the R1.1 principle, others remain, e.g. the liability when dataset have been published with erroneous
+licences. RuQaD mitigates these issues by promoting the provenance of datasets and ensuring rich meta data
+annotations before publishing data into the data space.
+
 
 ### Technical Context
 
@@ -597,3 +622,7 @@ and the software implementing it reach a stable version.
 | Compatibility (ISO 25010) | "Two or more systems can exchange information while sharing the same environment." |
 | FAIR | Findable, Accessible, Interoperable, Reusable (defined in: https://doi.org/10.1038/sdata.2016.18) |
 | ELN | Electronic Lab Notebook |
+| DSSC | Data Space Support Center, <https://dssc.eu/> |
+| DSSC Building Blocks | Building blocks of the data space architecture as defined by the DSSC Blue Print <https://dssc.eu/space/bv15e/766061169/Data+Spaces+Blueprint+v1.5+-+Home> |
+| PoLiS | Post-Lithium Storage Cluster of Excellence <https://www.postlithiumstorage.org> |
+| BatCAT | Battery Cell Assembly Twin, Horizon Europe Project <https://www.batcat.info/> |
