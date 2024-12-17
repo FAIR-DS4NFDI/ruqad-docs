@@ -1,5 +1,8 @@
 # RuQaD Architecture
 
+<!-- This follows the ARC42 <https://docs.arc42.org> template.-->
+<!-- Comments are left here for conveniance. It's the rendered document that counts! -->
+
 [TOC]
 
 ## Introduction and Goals
@@ -41,8 +44,13 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 - **Operability:** As a demonstrator, the main quality goal of the software is to be understood and learned. This facilitates building prototypes or production software based on the functionality of the demonstrator.
 - **Compatibility:** The system connects different software systems and therefore acts as a compatibility component.
 - **Transferability:** In order to serve as a tool for demonstration in different environments, the system needs to be built at a high level of transferability.
-- **Maintainability:** As a demonstrator, some parts of the system can be considered work-in-progress and need to be modified, corrected or adapted over time.
-<!--TODO: Maintainability einschränken, weil Demonstrator -->
+- **Maintainability:** 
+The project's limited time frame also scopes the maintainability goal: As a demonstrator, some parts of the
+system can be considered work-in-progress and need to be modified, corrected or adapted over time.Whenever
+code is being contributed to components which have already a forseeable future in other contexts the
+maintainability must be taken in consideration. On the other hands, code which mainly serves the demonstration
+of the particular scenario (PoLiS/BatCAT) it is acceptable to provide only PoC implementations which need
+adjustments for a long-term maintenance.
 
 ### Stakeholders
 
@@ -97,7 +105,7 @@ Twin) with an external research infrastructure (PoLiS - Post Lithium Storage Clu
 regard, RuQaD is a Value-Added Service and addresses several DSSC Building Blocks in compliance FAIR Guiding
 Principles.
 
-RuQaD builds on FAIR Components (LinkAhead: F1, F2, F3,F4, A1, A2 .eln-File-Format, RO-Crate: F2, F3, I1, I2, I3, Data Models, Provenance & Tracability,
+RuQaD builds on fAIR Components (LinkAhead: F1, F2, F3,F4, A1, A2 .eln-File-Format, RO-Crate: F2, F3, I1, I2, I3, Data Models, Provenance & Tracability,
 EDC: A1, A2, I1, I2, I3). It is the focus of RuQaD to promote the Reusability (R) of datasets.
 A central barrier to reusing are quality requirements of the reusing party. RuQaD uses the quality check
 pipeline of the FAIR Data Spaces Demonstrator 4.2 to asses the quality of a given dataset (e.g. missing
@@ -192,8 +200,6 @@ annotations before publishing data into the data space.
 >
 > In the best case you will get away with examples or simple signatures.
 -->
-
-<b style="color: red; font-size: 32pt">TODO</b>
 
 ![Building Blocks](embed:buildingBlocks)
 
@@ -302,7 +308,7 @@ This functionality is extended by a custom converters and data transformers.
 
 ##### Crawler wrapper #####
 
-<b style="color: red; font-size: 32pt">TODO: rewrite from overall view to wrapper component description</b>
+<!-- Consider revision: rewrite from overall view to wrapper component description -->
 
 ###### Purpose / Responsibility
 
@@ -393,7 +399,13 @@ is described here.
 > From a software perspective it is sufficient to capture those elements of the infrastructure that are needed to show the deployment of your building blocks. Hardware architects can go beyond that and describe the infrastructure to any level of detail they need to capture.
 
 -->
-### Infrastructure Level 1
+### BatCAT Testbed (Kubernetes)
+
+### Kadi4Mat Public Demo
+
+### Demonstrator 4.2 Pipeline
+
+### RuQaD in Docker
 
 <!--
 
@@ -405,34 +417,6 @@ is described here.
 > 4. the mapping of software artifacts (building blocks) to elements of the infrastructure
  
  -->
-
-***\<Overview Diagram>***
-
-Motivation  
-*\<explanation in text form>*
-
-Quality and/or Performance Features  
-*\<explanation in text form>*
-
-Mapping of Building Blocks to Infrastructure  
-*\<description of the mapping>*
-
-### Infrastructure Level 2
-
-#### *\<Infrastructure Element 1>*
-
-*\<diagram + explanation>*
-
-#### *\<Infrastructure Element 2>*
-
-*\<diagram + explanation>*
-
-…
-
-#### *\<Infrastructure Element n>*
-
-*\<diagram + explanation>*
-
 
 ## Cross-cutting Concepts
 
@@ -464,11 +448,24 @@ Multiple components of the software use REST interfaces for data exchange.
 
 ### FAIR
 
-<!-- TODO: Timm -->
+The FAIR guiding principles are key requirements for the FAIR Dataspaces Project in general and the RuQaD
+demonstrator in particular. They are designed as a "guideline for those wishing to enhance the reusability of their data holdings. [...] the FAIR Principles put specific emphasis on enhancing the ability of machines to automatically find and use the data [...]" (Wilkinson et al. <https://doi.org/10.1038/sdata.2016.18>)
 
-### Dataspaces
+The RuQaD demonstrator especially addresses the "R" principles:
 
-<!-- TODO: Timm -->
+* R1. (Meta)data are richly described with a plurality of accurate and relevant attributes
+    * R1.1. (Meta)data are released with a clear and accessible data usage license
+    * R1.2. (Meta)data are associated with detailed provenance
+    * R1.3. (Meta)data meet domain-relevant community standards
+
+### Data spaces
+
+A data space is an "Interoperable framework, based on common governance principles, standards, practices and enabling services, that enables trusted data transactions between participants." (DSSC Blueprint, [CEN CENELEC workshop agreement on Trusted Data Transactions](https://www.cencenelec.eu/media/CEN-CENELEC/CWAs/RI/2024/cwa18125_2024.pdf))
+
+While the BatCAT data space is important as a part of the demonstration and use-case scenario, building and
+maintaining the data space it not itself in scope of the RuQaD demonstrator. Instead, RuQad needs to adapt to
+the API of the BatCAT data space which is building on the research data management system LinkAhead as it's
+core component for storing research data.
 
 ### ELN-FileFormat / ROCrate
 
@@ -555,7 +552,7 @@ and the software implementing it reach a stable version.
 | Transferability (ISO 25010) | "System can be transferred from one environment to another." |
 | Maintainability (ISO 25010) | "System can be modified, corrected, adapted or improved due to changes in environment or requirements." |
 | Compatibility (ISO 25010) | "Two or more systems can exchange information while sharing the same environment." |
-| FAIR | Findable, Accessible, Interoperable, Reusable (defined in: https://doi.org/10.1038/sdata.2016.18) |
+| FAIR | Findable, Accessible, Interoperable, Reusable (defined in: <https://doi.org/10.1038/sdata.2016.18>) |
 | ELN | Electronic Lab Notebook |
 | DSSC | Data Space Support Center, <https://dssc.eu/> |
 | DSSC Building Blocks | Building blocks of the data space architecture as defined by the DSSC Blue Print <https://dssc.eu/space/bv15e/766061169/Data+Spaces+Blueprint+v1.5+-+Home> |
