@@ -171,8 +171,6 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > In the best case you will get away with examples or simple signatures.
 -->
 
-<!-- TODO: Alex, aufräumen, überschriften wegmachen etc. -->
-
 <b style="color: red; font-size: 32pt">TODO</b>
 
 ![Building Blocks](embed:buildingBlocks)
@@ -193,42 +191,44 @@ FAIRness evalution and data integration.
 
 #### Monitor ####
 
+##### Purpose / Responsibility
+
 The monitor continuously polls a *Kadi4Mat* instance (representing the source dataspace) for new
 data items.
+
+##### Interface(s)
 
 Each new data item is passed on to the quality checker for evaluation of the data quality.
 Afterwards the monitor passes the quality check report and the original data to the crawler, which
 eventually leads to insertion in the *BatCAT* data space where the items can be checked by *data
 curators* and retrieved by *data consumers*.
 
+##### Directory/File Location
+
 **Source code:** `src/ruqad/monitor.py`
 
 #### Quality Checker ####
 
-<!--*\<Purpose/Responsibility>*-->
+##### Purpose / Responsibility
 
 The quality checker executes data quality checks on the data which was retrieved from the input
 dataspace (a Kadi4Mat instance in this case).  It provides a structured summary for other components
 and also a detailed report for human consumption.
 
-<!--*\<Interface(s)>*-->
+##### Interface(s)
 
 The quality checker is implemented as a Python class `QualityChecker` which provides mainly a
 `check(filename, target_dir)` method to check individual files.  This class is available in the
 module `ruqad.qualitycheck`.
 
-<!--*\<(Optional) Quality/Performance Characteristics>*-->
+##### Quality / Performance Characteristics
 
 The quality checker relies on the [demonstrator 4.2](https://git.rwth-aachen.de/fair-ds/ap-4-2-demonstrator/ap-4.2-data-validation-and-quality-assurance-demonstrator) to perform the checks.  Thus, RuQaD relies
 on further maintenance by the demonstrator's development team.
 
-<!--*\<(Optional) Directory/File Location>*-->
+##### Directory/File Location
 
 **Source code:** `src/ruqad/qualitycheck.py`
-
-<!--*\<(Optional) Fulfilled Requirements>*
-
-*\<(optional) Open Issues/Problems/Risks>*-->
 
 ##### Open issues #####
 
@@ -239,54 +239,20 @@ on further maintenance by the demonstrator's development team.
 
 #### RuQaD Crawler
 
-<!--*\<Purpose/Responsibility>*-->
+##### Purpose/Responsibility
 
 The RuQaD Crawler executes metadata checks and bundles data and metadata for insertion into the
 BatCAT dataspace.
 
-<!--*\<Interface(s)>*-->
+##### Interface(s)
 
 The crawler is implemented as a Python module with a function `trigger_crawler(...)` which looks for
 data and quality check files to evaluate and insert into the BatCAT dataspace.  It uses LinkAhead's
 crawler framework for metadata checks, object creation and interaction with the target dataspace.
 
-<!--*\<(Optional) Quality/Performance Characteristics>*
-*\<(Optional) Directory/File Location>*-->
+##### Directory / File Location
 
 **Source code:** `src/ruqad/crawler.py`
-
-<!--*\<(Optional) Fulfilled Requirements>*
-*\<(optional) Open Issues/Problems/Risks>*-->
-
-
-<!-- #### \<Name black box 2> -->
-
-<!-- *\<black box template>* -->
-
-<!-- *\<Purpose/Responsibility>* -->
-<!-- *\<Interface(s)>* -->
-<!-- *\<(Optional) Quality/Performance Characteristics>* -->
-<!-- *\<(Optional) Directory/File Location>* -->
-<!-- *\<(Optional) Fulfilled Requirements>* -->
-<!-- *\<(optional) Open Issues/Problems/Risks>* -->
-
-
-<!-- #### \<Name black box n> -->
-
-<!-- *\<black box template>* -->
-
-<!-- *\<Purpose/Responsibility>* -->
-<!-- *\<Interface(s)>* -->
-<!-- *\<(Optional) Quality/Performance Characteristics>* -->
-<!-- *\<(Optional) Directory/File Location>* -->
-<!-- *\<(Optional) Fulfilled Requirements>* -->
-<!-- *\<(optional) Open Issues/Problems/Risks>* -->
-
-<!-- #### \<Name interface 1> -->
-
-<!-- … -->
-
-<!-- #### \<Name interface m> -->
 
 ### Level 2
 
@@ -312,13 +278,11 @@ This functionality is extended by a custom converters and data transformers.
 - **Converter:** Custom conversion plugin to create resulting (sub) entities.
 - **Transformer:** Custom conversion plugin to transform input data into properties.
 
-*<(optionally) describe important interfaces>*
-
 ##### Crawler wrapper #####
 
 <b style="color: red; font-size: 32pt">TODO: rewrite from overall view to wrapper component description</b>
 
-<!--*\<Purpose/Responsibility>*  -->
+###### Purpose / Responsibility
 
 The crawler wrapper scans files in specific directories of the file system and synchronizes them
 with the LinkAhead instance. Before insertion and updates of `Records` in LinkAhead, a meta data
@@ -328,7 +292,7 @@ validation error messages and prevents insertions or updates of the scan result.
 component also carries out a check of data FAIRness of the data exported from kadi4mat (in ELN
 format).
 
-<!--*\<Interface(s)>*-->
+###### Interface(s)
 The crawler uses:
 - A cfood (file in YAML format) which specifies the mapping from data found on the file system to `Records` in LinkAhead.
 - A definition of the identifiables (file in YAML format) which defines the properties that are needed to uniquely identify `Records` of the data model in LinkAhead.
@@ -339,46 +303,20 @@ The crawler uses:
 The interface is a Python-function that is implemented as a module into the RuQaD demonstrator. The function calls the scanner and main crawler functions of the
 LinkAhead crawler software.
 
-<!--*\<(Optional) Quality/Performance Characteristics>*
+###### Directory / File Location
 
-*\<(Optional) Directory/File Location>*-->
 **Source code:** 
 - Main interface: `ruqad/src/ruqad/crawler.py`
 - Crawler extensions:
   - Custom converters (currently not used): `ruqad/src/ruqad/crawler-extensions/converters.py`
   - Custom transformers: `ruqad/src/ruqad/crawler-extensions/transformers.py`
 
-*\<(Optional) Fulfilled Requirements>*
+###### Fulfilled Requirements
+
 - Data ingest from exported ELN file into LinkAhead.
 - Data ingest from quality check into LinkAhead.
 - Check of FAIRness of data from ELN file.
 - Meta data check
-
-<!--*\<(optional) Open Issues/Problems/Risks>*-->
-
-<!-- #### White Box *\<building block 2>* -->
-
-<!-- *\<white box template>* -->
-
-<!-- … -->
-
-<!-- #### White Box *\<building block m>* -->
-
-<!-- *\<white box template>* -->
-
-<!-- ### Level 3 -->
-
-<!-- #### White Box \<\_building block x.1\_\> -->
-
-<!-- *\<white box template>* -->
-
-<!-- #### White Box \<\_building block x.2\_\> -->
-
-<!-- *\<white box template>* -->
-
-<!-- #### White Box \<\_building block y.1\_\> -->
-
-<!-- *\<white box template>* -->
 
 ## Runtime View
 
