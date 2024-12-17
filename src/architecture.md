@@ -10,10 +10,9 @@
 
 ### Requirements Overview
 
+The aim of the project is to build a demonstrator that connects a research data infrastructure (PoLis) with an industrial data space (BatCAT) to reuse datasets for new applications.
 
-The aim of the project is to build a demonstrator that connects the data management system kadi4mat and EDC allowing for quality checked data exchange from kadi4mat to EDC.
-This needs to be achieved by a tool that exports data from the source system, carries out quality and meta data checks (involving an existing pipeline) and importing the
-data into the target system. 
+Technically, this is to be realized as a tool (RuQaD) that exports data from the source system, the research data management system Kadi4Mat. RuQaD carries out quality and meta data checks (involving an existing pipeline) and pushes the data into the target system, the research data management system LinkAhead, that is the basis of the BatCAT data space.
 
 The motivation is to allow a seamless exchange of data between research and industry.
 It is important to ensure that the FAIR criteria are met, therefore a dedicated check for meta data and the FAIR criteria is implemented.
@@ -57,8 +56,6 @@ RuQaD's main quality goals are, using the terms from ISO 25010 (see glossary for
 > - have to come up with decisions about the system or its development
 -->
 
-
-<b style="color: red; font-size: 32pt">TODO</b>
 
 | Role/Name        | Expectations                                                 |
 |------------------|--------------------------------------------------------------|
