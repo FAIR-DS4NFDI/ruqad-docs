@@ -28,3 +28,12 @@ The tools directory contains the following tools:
   layout single diagrams.
 
 All tools require docker, more information in the [readme](tools/README.md) in the tools directory.
+
+## License
+
+* This architecture documentation is published under [CC-BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+* Copyright (C) 2024 IndiScale GmbH <mailto:info@indiscale.com>
+* Copyright (C) 2024 Timm Fitschen
+* Copyright (C) 2024 Alexander Schlemmer
+* Copyright (C) 2024 Daniel Hornung
+* Copyright (C) 2024 Henrik tom Wörden
