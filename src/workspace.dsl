@@ -27,6 +27,11 @@ workspace "RuQaD" "Architecture Overview on the RuQaD Demonstrator" {
 
         !include model/runtime.dsl
 
+        deployment * testbed testbed_deployment {
+            include *
+            autolayout lr
+        }
+
         styles {
             element "Element" {
                 color white

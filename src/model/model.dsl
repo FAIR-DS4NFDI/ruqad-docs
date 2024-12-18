@@ -59,4 +59,6 @@ Framework for file scanning, LinkAhead entity building and synchronization."
     ruqad.monitor -> ruqad.crawler.crawler_wrapper
     ruqad.crawler.crawler_wrapper -> linkahead_crawler
 
+    !include "deployment.dsl"
+
 }

@@ -3,6 +3,12 @@
 <!-- This follows the ARC42 <https://docs.arc42.org> template.-->
 <!-- Comments are left here for conveniance. It's the rendered document that counts! -->
 
+This document describes the architecture of the [RuQaD Demonstrator](https://gitlab.indiscale.com/caosdb/src/fair-data-spaces/ruqad)
+
+The RuQaD Demonstrator is the main product of the project "RuQaD Batteries - Reuse Quality-assured Data for
+Batteries". The project is a sub-project of the [FAIR Data Spaces](https://www.nfdi.de/fair-data-spaces/) project, supported by the German Federal Ministry
+of Education and Research under the Förderkennzeichen [FAIRDS09](https://foerderportal.bund.de/foekat/jsp/SucheAction.do?actionMode=view&fkz=FAIRDS09)
+
 [TOC]
 
 ## Introduction and Goals
@@ -382,8 +388,6 @@ is described here.
 
 ## Deployment View
 
-<b style="color: red; font-size: 32pt">TODO</b>
-
 <!--
 [https://docs.arc42.org/section-7/](https://docs.arc42.org/section-7/)
 
@@ -399,13 +403,17 @@ is described here.
 > From a software perspective it is sufficient to capture those elements of the infrastructure that are needed to show the deployment of your building blocks. Hardware architects can go beyond that and describe the infrastructure to any level of detail they need to capture.
 
 -->
-### BatCAT Testbed (Kubernetes)
 
-### Kadi4Mat Public Demo
+The deployment of the demonstrator builds on the BatCAT Testbed. The BatCAT Testbed uses minikube to setup a local
+Kubernetes cluster where the core components of the BatCAT Data Space are being deployed for testing and development purposes, this includes EDC Connectors for several agents of the data space, identity management, federated catalog services, databases and LinkAhead instances for the data storage management.
 
-### Demonstrator 4.2 Pipeline
+The RuQaD demonstrator has been integrated into this testbed as well as the Kadi4Mat ELN.
 
-### RuQaD in Docker
+The 4.2 Demonstrator has not been integrated into the testbed. This would entail setting up a full-blown Gitlab instance, setting up a Gitlab Runner and loading the runnner configuration into a Git repository which is just too complex for demontrating single API call.
+
+The steps for setting up the BatCAT Testbed is documented in the RuQaD clone of the [BatCAT Testbed repository](https://gitlab.indiscale.com/caosdb/src/fair-data-spaces/testbed).
+
+![Deployment View](embed:testbed_deployment)
 
 <!--
 
@@ -476,10 +484,6 @@ on top of ROCrate (Research Object Crate) which is a standard for self-contained
 
 In pinciple the whole pipeline can be considered an extract-transform-load process. Data is extracted from kadi4mat. It is transformed into a format
 that can be interpreted by LinkAhead. Afterwards it is loaded into LinkAhead and connected to the EDC.
-
-### *\<Concept n>*
-
-*\<explanation>*
 
 <!--
 ## Architecture Decisions
@@ -558,3 +562,12 @@ and the software implementing it reach a stable version.
 | DSSC Building Blocks | Building blocks of the data space architecture as defined by the DSSC Blue Print <https://dssc.eu/space/bv15e/766061169/Data+Spaces+Blueprint+v1.5+-+Home> |
 | PoLiS | Post-Lithium Storage Cluster of Excellence <https://www.postlithiumstorage.org> |
 | BatCAT | Battery Cell Assembly Twin, Horizon Europe Project <https://www.batcat.info/> |
+
+## License
+
+* This architecture documentation is published under [CC-BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+* Copyright (C) 2024 IndiScale GmbH <mailto:info@indiscale.com>
+* Copyright (C) 2024 Timm Fitschen
+* Copyright (C) 2024 Alexander Schlemmer
+* Copyright (C) 2024 Daniel Hornung
+* Copyright (C) 2024 Henrik tom Wörden
