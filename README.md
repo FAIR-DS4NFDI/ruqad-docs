@@ -1,6 +1,6 @@
 # RuQaD Architecture Documentation
 
-This repository contains the RuQaD architecture documentation. 
+This repository contains the RuQaD architecture documentation.
 
 We use a doc-as-code approach based on [arc42](https://arc42.org/) and the [C4
 model](https://c4model.com/) using the
@@ -28,6 +28,12 @@ The tools directory contains the following tools:
   layout single diagrams.
 
 All tools require docker, more information in the [readme](tools/README.md) in the tools directory.
+
+## Background
+
+The RuQaD Demonstrator is the main product of the project "RuQaD Batteries - Reuse Quality-assured Data for
+Batteries". The project is a sub-project of the [FAIR Data Spaces](https://www.nfdi.de/fair-data-spaces/) project, supported by the German Federal Ministry
+of Education and Research under the Förderkennzeichen [FAIRDS05 (PR697238)](https://foerderportal.bund.de/foekat/jsp/SucheAction.do?actionMode=view&fkz=FAIRDS05)
 
 ## License
 

@@ -7,7 +7,7 @@ This document describes the architecture of the [RuQaD Demonstrator](https://git
 
 The RuQaD Demonstrator is the main product of the project "RuQaD Batteries - Reuse Quality-assured Data for
 Batteries". The project is a sub-project of the [FAIR Data Spaces](https://www.nfdi.de/fair-data-spaces/) project, supported by the German Federal Ministry
-of Education and Research under the Förderkennzeichen [FAIRDS09](https://foerderportal.bund.de/foekat/jsp/SucheAction.do?actionMode=view&fkz=FAIRDS09)
+of Education and Research under the Förderkennzeichen [FAIRDS05 (PR697238)](https://foerderportal.bund.de/foekat/jsp/SucheAction.do?actionMode=view&fkz=FAIRDS05)
 
 [TOC]
 
